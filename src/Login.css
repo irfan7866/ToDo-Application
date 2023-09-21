@@ -1,0 +1,49 @@
+.loginPage {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    width: 300px;
+}
+
+h2 {
+    margin-top: 5px;
+}
+
+.form-block {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+button {
+    background-color: #1478e3;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    width: 50%;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+h6 {
+    opacity: 0.5;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
