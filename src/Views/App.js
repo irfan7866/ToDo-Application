@@ -3,7 +3,8 @@ import FrontPage from './FrontPage'
 import Signup from './Signup'
 import Login from './Login'
 import Home from './Home'
-import Routing from './Routes/AuthRoutes'
+import Routing from '../Routes/AuthRoutes'
+import ListItemInput from './ListItemInput'
 
 function App() {
   return (
@@ -11,8 +12,9 @@ function App() {
       {/* <FrontPage />     */}
       {/* <Signup />   */}
       {/* <Login /> */}
-      {/* <Home /> */}
-      <Routing />
+      <Home />
+      {/* <Routing /> */}
+      {/* <ListItemInput /> */}
     </div>
   );
 }

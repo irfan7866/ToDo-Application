@@ -5,6 +5,7 @@
     border-radius: 5px;
     text-align: center;
     width: 300px;
+    height: 400px;
 }
 
 h2 {
@@ -12,23 +13,29 @@ h2 {
 }
 
 .form-block {
+    margin-top: 20px;
     margin-bottom: 20px;
+    text-align: left;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+.form-block > label {
+    padding-left: 3px;
 }
 
-input {
+.form-block > input {
     width: 100%;
     padding: 5px;
+    margin-top: 5px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 2px;
+    border-radius: 5px;
 }
 
-button {
+.block1 {
+    margin-top: 50px;
+}
+
+.loginButton, .signupButton {
     background-color: #1478e3;
     color: white;
     border: none;
@@ -46,4 +53,20 @@ h6 {
     opacity: 0.5;
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+p {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 550px;
+}
+
+a {
+    color: #1478e3;
+}
+
+a:hover {
+    cursor: pointer;
+    color: #0056b3;
 }

@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Routes, Route, Navigate} from 'react-router-dom';
-import Login from '../Login';
-import Signup from '../Signup';
-import Home from '../Home';
+import Login from '../Views/Login';
+import Signup from '../Views/Signup';
+import Home from '../Views/Home';
 
 export default function Routing() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
