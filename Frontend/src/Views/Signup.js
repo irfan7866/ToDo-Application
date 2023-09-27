@@ -27,14 +27,14 @@ const Signup = () => {
             const response = await axios.post('http://localhost:4000/api/user/register', formData);
 
             if (response.status === 200) {
-                alert('User registered successfully');
-                navigate('/home')
+                const user = response.data.user;
+                navigate(`/home/${user._id}`)
             } else {
                 alert('An error occurred, Please try again');
             }
         }
         catch (error) {
-            alert('User already registered, Please try to login or try to signup using different email');
+            alert('User already registered, Please try to login or signup using different email');
         }
     };
 

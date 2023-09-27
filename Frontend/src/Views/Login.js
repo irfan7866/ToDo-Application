@@ -32,7 +32,7 @@ function Login() {
 
             if(response.status === 200) {
                 const user = response.data.user;
-                alert(`User login successfully, User id: ${user._id}`);
+                // alert(`User login successfully, User id: ${user._id}`);
                 navigate(`/home/${user._id}`);
             }
             else {

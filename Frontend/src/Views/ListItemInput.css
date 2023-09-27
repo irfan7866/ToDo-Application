@@ -16,11 +16,10 @@
 
 .addButton {
     margin: 0px 15px;
-    background-color: #1478e3;
     border: 1px solid black;
     border-radius: 5px;
 }
 
 .addButton:hover {
-    background-color: #0056b3;
+    background-color: #1478e3;
 }

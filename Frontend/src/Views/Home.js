@@ -2,13 +2,12 @@ import React from 'react';
 import './Home.css'
 import ListItemInput from './ListItemInput'
 import { useNavigate, useParams } from 'react-router-dom';
+import ListingListItems from './ListingListItems';
 
 export default function Home() {
 
     const navigate = useNavigate();
     const {_id} = useParams();
-
-    console.log(_id);
 
     return (
         <div className='mainPage'>
@@ -20,7 +19,9 @@ export default function Home() {
 
             </div>
 
-            <ListItemInput />
+            <ListItemInput userId = {_id}/>
+
+            <ListingListItems userId = {_id}/>
             
         </div>
     )
