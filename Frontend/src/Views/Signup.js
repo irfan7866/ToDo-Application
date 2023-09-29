@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from 'axios';
 import './Login.css'
@@ -15,28 +15,34 @@ const Signup = () => {
 
     const handleChange = (e) => {
         setFormData({
-            ...formData, 
+            ...formData,
             [e.target.name]: e.target.value
         });
     };
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async(e) => {  
         e.preventDefault();
 
+        if(!formData.name || !formData.username || !formData.password) {
+            alert("Please fill all the entries to Sign up");
+            return;
+        }
+
         try {
+
             const response = await axios.post('http://localhost:4000/api/user/register', formData);
 
-            if (response.status === 200) {
+            if(response.status === 200) {
                 const user = response.data.user;
-                navigate(`/home/${user._id}`)
+                navigate(`/home/${user._id}`);
             } else {
-                alert('An error occurred, Please try again');
+                alert(`Something went wrong, Please try again`);
             }
+
+        } catch (error) {
+            alert(`User already Registered or email entered is wrong`);
         }
-        catch (error) {
-            alert('User already registered, Please try to login or signup using different email');
-        }
-    };
+    }
 
     return (
         <div className="loginPage">

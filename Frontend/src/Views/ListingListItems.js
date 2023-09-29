@@ -8,16 +8,27 @@ export default function ListingListItems({ userId }) {
     useEffect(() => {
 
         const fetchListItems = async () => {
-        try {
-            const response = await axios.get(`http://localhost:4000/api/list/getAllListItems/${userId}`);
-            setItems(response.data.listItems);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
+            try {
+                const response = await axios.get(`http://localhost:4000/api/list/getAllListItems/${userId}`);
+                setItems(response.data.listItems);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
         };
 
         fetchListItems();
-    }, [userId]);
+    }, [userId, items]);
+
+    const handleDelete = async(ItemId) => {
+        console.log(ItemId);
+        try {
+            await axios.delete(`http://localhost:4000/api/list/deleteListItem/${ItemId}`);
+        } catch (error) {
+            console.error(`Something went wrong and error occurred is: `, error);
+        }
+    }
+
+    
 
     return (
         <div className="list-item-page">
@@ -27,7 +38,7 @@ export default function ListingListItems({ userId }) {
                     <span className="item-description">{item.task}</span>
                     <div>
                     <button className="update-button">Update</button>
-                    <button className="delete-button">Delete</button>
+                    <button className="delete-button" onClick={() => handleDelete(item._id)}>Delete</button>
                     </div>
                 </li>
                 ))}

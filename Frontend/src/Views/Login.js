@@ -10,7 +10,7 @@ function Login() {
     const [formData, setFormData] = useState({
         username: "",
         password: ""
-    });
+    })
 
     const handleChange = (e) => {
         setFormData({
@@ -23,24 +23,23 @@ function Login() {
         e.preventDefault();
 
         if(!formData.username || !formData.password) {
-            alert('Please enter the username and password first');
+            alert("Please fill all the entries to login");
             return;
         }
 
         try {
+
             const response = await axios.post('http://localhost:4000/api/user/login', formData);
 
             if(response.status === 200) {
                 const user = response.data.user;
-                // alert(`User login successfully, User id: ${user._id}`);
-                navigate(`/home/${user._id}`);
+                navigate(`/home/${user._id}`)
+            } else {
+                alert("Something went wrong, Please try again");
             }
-            else {
-                alert(`An error occurred, Please try again`)
-            }
-        }
-        catch (error) {
-            alert(`Invalid email or password`);
+
+        } catch (error) {
+            alert("Invalid Username or Password ", error);
         }
     }
 

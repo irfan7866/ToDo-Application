@@ -6,23 +6,18 @@ export default function ListItemInput({userId}) {
 
     const [task, setTask] = useState('');
 
-    const handleAddTask = async(req, res) => {
+    const handleAddTask = async() => {
         const data = {
             userId: userId,
             task: task
         }
 
         try {
-
             if(!task) {
                 alert("Please enter any task first");
                 return;
             }
-
             await axios.post('http://localhost:4000/api/list/addListItem', data);
-
-            alert("Task added successfully");
-
             setTask('');
         }
         catch (error) {
