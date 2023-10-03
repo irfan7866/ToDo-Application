@@ -5,6 +5,7 @@ import axios from 'axios';
 export default function ListingListItems({ userId }) {
 
     const [items, setItems] = useState([]);
+
     const [completed, setCompleted] = useState([]);
     const [inComplete, setInComplete] = useState([]);
 
@@ -26,7 +27,7 @@ export default function ListingListItems({ userId }) {
                 setInComplete(incomplete);
 
             } catch (error) {
-                console.error('Error fetching data:', error);
+                alert('Error fetching data:', error);
             }
         };
 
@@ -38,7 +39,7 @@ export default function ListingListItems({ userId }) {
         try {
             await axios.delete(`http://localhost:4000/api/list/deleteListItem/${ItemId}`);
         } catch (error) {
-            console.error(`Something went wrong and error occurred is: `, error);
+            alert(`Something went wrong and error occurred is: `, error);
         }
     }
     
@@ -56,7 +57,7 @@ export default function ListingListItems({ userId }) {
             });
             setEditItemId(null);
         } catch (error) {
-            console.error(`The error occurred is: `, error);
+            alert(`The error occurred is: `, error);
         }
     }
 
@@ -67,7 +68,7 @@ export default function ListingListItems({ userId }) {
                 isCompleted: !iscompleted
             })
         } catch (error) {
-            console.error(`The error occurred is: `, error);
+            alert(`The error occurred is: `, error);
         }
     }
 

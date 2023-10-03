@@ -21,7 +21,7 @@ export default function ListItemInput({userId}) {
             setTask('');
         }
         catch (error) {
-            console.error("Something went wrong, the error encountered is:", error);
+            alert(`Something went wrong in adding task, error encountered is: `, error);
         }
     }
 

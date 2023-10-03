@@ -8,6 +8,7 @@ export default function Routing() {
 
     return (
         <Routes>
+            <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Signup />} />
             <Route path="/home/:_id" element={<Home />} />
