@@ -19,7 +19,7 @@ exports.addListItem = async(req, res) => {
         const existingUser = await User.findOne({ _id: userId });
 
         if (!existingUser) {
-        return res.status(404).json({ message: 'User not found, Please enter a valid User Id' });
+            return res.status(404).json({ message: 'User not found, Please enter a valid User Id' });
         }
         
         const list = List.create({
@@ -90,3 +90,26 @@ exports.deleteListItem = async(req, res) => {
     }
 }
 
+// Read All List Items
+exports.getAllListItems = async(req, res) => {
+    try {
+        const userId = req.params.id;
+
+        if(!ObjectId.isValid(userId))
+            return res.status(400).json({message: `Invalid User Id`});
+
+        const user = await User.findById(userId);
+
+        if(!user) 
+            return res.status(404).json({message: `User not found`});
+
+        const listItems = await List.find({userId});
+
+        res.status(200).json({listItems});
+
+    }
+    catch (error) {
+        console.log(error);
+        return res.status(500).json({message: `An error occurred, Please try again`, error});
+    }
+}
