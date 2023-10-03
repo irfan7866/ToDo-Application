@@ -37,7 +37,7 @@
     justify-content: space-between;
     background-color: #ecebeb;
     list-style-type: none;
-    width: 47vh;
+    width: 55vh;
     min-height: 30px;
     border: 1px solid rgb(126, 125, 125);
     border-radius: 5px;
@@ -55,7 +55,7 @@
     width: 220px;
 }
 
-.update-button, .delete-button {
+/* .update-button, .delete-button, .complete {
     border: 1px solid black;
     border-radius: 3px;
     margin-left: 5px;
@@ -63,5 +63,16 @@
 }
 
 .update-button:hover, .delete-button:hover {
+    background-color: #1478e3;
+} */
+
+.buttons {
+    border: 1px solid black;
+    border-radius: 3px;
+    margin-left: 5px;
+    padding: 5px 3px 3px 3px;
+}
+
+.buttons:hover {
     background-color: #1478e3;
 }
