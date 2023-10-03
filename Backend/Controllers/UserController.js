@@ -43,36 +43,3 @@ exports.loginUser = async(req, res) => {
         res.status(500).json({message: `Something went wrong`, error});
     }
 }
-
-// User Log out
-exports.logoutUser = async(req, res) => {
-    try {
-        res.cookie("token", null, {
-            expires: new Date(Date.now()),
-            httpOnly: true,
-        });
-
-        res.status(200).json({
-            success:true,
-            message:"Logged out",
-        });
-    }
-    catch(error) {
-        res.status(500).json({message: `Something went wrong`, error});
-    }
-}
-
-// User Details
-exports.getUserDetail = async(req, res) => {
-    try {
-        const user = await User.findById(req.params.id);
-
-        if(!user) 
-            return res.status(404).json({message: `User not found`});
-        
-        res.status(200).json({user});
-    }
-    catch(error) {
-        res.status(500).json({message: `Something went wrong`, error});
-    }
-}
